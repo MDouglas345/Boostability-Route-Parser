@@ -21,7 +21,7 @@ namespace Boostability_Route_Parser.RouteNode
 
         public bool alreadyExistsInPrevious(ref IRouteNode node);
 
-        public void forwardTraverse(string current, ref IEnumerable<string> list);
+        public void forwardTraverse(string current, ref List<string> list);
 
         public bool isLeafNode();
 

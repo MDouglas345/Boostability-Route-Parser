@@ -8,8 +8,8 @@ namespace Boostability_Route_Parser.RouteNode
 {
     class RouteNodeImpl : IRouteNode
     {
-        IEnumerable<IRouteNode> Previous;
-        IEnumerable<IRouteNode> Next;
+        List<IRouteNode> Previous;
+        List<IRouteNode> Next;
 
         string Value;
 
@@ -29,7 +29,12 @@ namespace Boostability_Route_Parser.RouteNode
                 return false;
             }
 
-            Next.Append<IRouteNode>(node);
+            if (alreadyExistsInPrevious(ref node))
+            {
+                throw new Exception("Oh no! A cycle has been detected!");
+            }
+
+            Next.Add(node);
 
             return true;
         }
@@ -41,8 +46,12 @@ namespace Boostability_Route_Parser.RouteNode
             {
                 return false;
             }
+            if (alreadyExistsInNext(ref node))
+            {
+                throw new Exception("Oh no! A cycle has been detected!");
+            }
 
-            Previous.Append<IRouteNode>(node);
+            Previous.Add(node);
 
             return true;
         }
@@ -72,14 +81,14 @@ namespace Boostability_Route_Parser.RouteNode
             return false;
         }
 
-        public void forwardTraverse(string current, ref IEnumerable<string> list)
+        public void forwardTraverse(string current, ref List<string> list)
         {
-            // Append the previous string value with the current string value
+            // Add the previous string value with the current string value
             string newcurrent  = current + getValue();
 
             if (isLeafNode())
             {
-                list.Append(newcurrent);
+                list.Add(newcurrent);
                 return;
             }
 

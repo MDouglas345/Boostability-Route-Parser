@@ -81,13 +81,13 @@ namespace Boostability_Route_Parser.RouteTree
         {
             // A root node is any node in the dictionary that doesnt have Previous values
 
-            IEnumerable<IRouteNode> ListOfRoot = new List<IRouteNode>();
+            List<IRouteNode> ListOfRoot = new List<IRouteNode>();
 
             foreach (KeyValuePair<string, IRouteNode> entry in Nodes)
             {
                 if (entry.Value.getPrevious().Count() == 0)
                 {
-                    ListOfRoot.(entry.Value);
+                    ListOfRoot.Add(entry.Value);
                 }
             }
 
@@ -113,7 +113,7 @@ namespace Boostability_Route_Parser.RouteTree
 
         public IEnumerable<string> getPaths()
         {
-            IEnumerable<string> routes = new List<string>();
+            List<string> routes = new List<string>();
 
             IEnumerable<IRouteNode> roots = getRootNodes();
             

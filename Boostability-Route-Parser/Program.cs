@@ -19,16 +19,25 @@ using Boostability_Route_Parser.RouteAnalyzer;
 * 
 * 
 * Traversing is a depth first search.
+* 
+* 
+* Use IRouteTree.outputPaths() to print paths.
 */
-IRouteAnalyzer router = new RouteAnalyzerImpl();
-string[] routes =
+try
 {
-    "/home",
-    "/our-ceo.html -> /about-us.html",
-    "/about-us.html -> /about",
-    "/product-1.html -> /seo"
+    IRouteAnalyzer router = new RouteAnalyzerImpl();
+    string[] routes =
+    {
+        "/home",
+        "/our-ceo.html -> /about-us.html",
+        "/about-us.html -> /about",
+        "/product-1.html -> /seo"
 
-};
+    };
 
-router.Process(routes);
-Console.WriteLine("Hello, World!");
+    router.Process(routes);
+}
+catch(Exception e)
+{
+    Console.WriteLine(e.ToString());
+}
