@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Boostability_Route_Parser.RouteAnalyzer
 {
-    class RouteAnalyzerImpl : IRouteAnalyzer
+    public class RouteAnalyzerImpl : IRouteAnalyzer
     {
         IRouteTree tree;
 

@@ -2,7 +2,7 @@
 
 namespace Boostability_Route_Parser.RouteTree
 {
-    internal class RouteTreeImpl : IRouteTree
+    public  class RouteTreeImpl : IRouteTree
     {
         Dictionary<string,IRouteNode> Nodes;
 

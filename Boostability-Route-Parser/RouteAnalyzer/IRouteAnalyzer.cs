@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boostability_Route_Parser.RouteAnalyzer
 {
-    interface IRouteAnalyzer
+    public interface IRouteAnalyzer
     {
         IEnumerable<string> Process(IEnumerable<string> routes);
 

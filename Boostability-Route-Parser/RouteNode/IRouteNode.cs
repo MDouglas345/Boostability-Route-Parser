@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boostability_Route_Parser.RouteNode
 {
-    interface IRouteNode
+    public interface IRouteNode
     {
         public String getValue();
 

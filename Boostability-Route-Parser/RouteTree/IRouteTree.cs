@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Boostability_Route_Parser.RouteTree
 {
-    internal interface IRouteTree
+    public interface IRouteTree
     {
         public bool addEntry(string from, string to);
 

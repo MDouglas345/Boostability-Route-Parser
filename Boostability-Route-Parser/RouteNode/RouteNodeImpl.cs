@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boostability_Route_Parser.RouteNode
 {
-    class RouteNodeImpl : IRouteNode
+    public class RouteNodeImpl : IRouteNode
     {
         List<IRouteNode> Previous;
         List<IRouteNode> Next;
