@@ -35,6 +35,8 @@ namespace Boostability_Route_Parser.RouteNode
             }
 
             Next.Add(node);
+            IRouteNode me = this;
+            node.addPrevious(ref me);
 
             return true;
         }
@@ -52,7 +54,8 @@ namespace Boostability_Route_Parser.RouteNode
             }
 
             Previous.Add(node);
-
+            IRouteNode me = this;
+            node.addNext(ref me);
             return true;
         }
 

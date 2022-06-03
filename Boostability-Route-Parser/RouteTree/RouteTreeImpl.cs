@@ -74,6 +74,10 @@ namespace Boostability_Route_Parser.RouteTree
 
         public bool addNode(string key, ref IRouteNode node)
         {
+            if (!key.Equals(node.getValue()))
+            {
+                return false;
+            }
             return Nodes.TryAdd(key, node);
         }
 
@@ -98,13 +102,13 @@ namespace Boostability_Route_Parser.RouteTree
         {
             // A leaf node is any node in the dictionary that doesnt have Next values
 
-            IEnumerable<IRouteNode> ListOfLeaf = new List<IRouteNode>();
+            List<IRouteNode> ListOfLeaf = new List<IRouteNode>();
 
             foreach (KeyValuePair<string, IRouteNode> entry  in Nodes)
             {
                 if (entry.Value.getNext().Count() == 0)
                 {
-                    ListOfLeaf.Append(entry.Value);
+                    ListOfLeaf.Add(entry.Value);
                 }
             }
 
