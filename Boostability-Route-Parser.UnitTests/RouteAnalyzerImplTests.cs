@@ -71,5 +71,35 @@ namespace Boostability_Route_Parser.UnitTests
                 Assert.Pass();
             }
         }
+
+        [Test]
+        public void Process_DuplicatedRoutes_ExpectedBehavior()
+        {
+            IRouteAnalyzer tester = new RouteAnalyzerImpl();
+
+
+
+            string[] testData =
+            {
+                 "source",
+                 "source -> dest",
+                 "dest -> dest2",
+                 "source -> dest2",
+                 "source -> dest"
+            };
+
+            IEnumerable<string> actual = new[]
+            {
+                "sourcedestdest2",
+                "sourcedest2"
+            };
+
+            IEnumerable<string> res = tester.Process(testData);
+
+            Assert.That(res.Count(), Is.EqualTo(2));
+
+            Assert.That(res, Is.EqualTo(actual));
+
+        }
     }
 }
